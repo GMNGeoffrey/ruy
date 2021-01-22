@@ -36,7 +36,8 @@ include(cmake/ruy_cc_library.cmake)
 include(cmake/ruy_cc_binary.cmake)
 include(cmake/ruy_cc_test.cmake)
 
-if (NOT TARGET cpuinfo)
+if (NOT TARGET cpuinfo
+    AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/third_party/cpuinfo/CMakeLists.txt")
   # Disabling cpuinfo's tests and benchmarks to prevent a copy of its
   # googletest dependency getting downloaded into a 'deps' directory in the
   # source tree!
